@@ -1,0 +1,29 @@
+{
+  "name": "devops-todo-list",
+  "version": "1.0.0",
+  "description": "Sample project for studying and practicing DevOps fundamentals, focusing on building a simple API for task management (CRUD), deployment automation, containerization with Docker, continuous integration, and automated testing.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santosnna/devops-todo-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santosnna/devops-todo-list/issues"
+  },
+  "homepage": "https://github.com/santosnna/devops-todo-list#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.1"
+  }
+}
