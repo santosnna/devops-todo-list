@@ -1,21 +1,23 @@
+// src/app.js
 const express = require('express');
 const dotenv = require('dotenv');
+const taskRoutes = require('./routes/taskRoutes');
+
+dotenv.config({ path: '.env.example' }); // opcional: carrega defaults
+dotenv.config(); // carrega .env real
+
 const app = express();
 
-dotenv.config({ path: '.env.example' });
-dotenv.config();
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-express.json();
-
-console.log(process.env.DB_HOST, process.env.DB_USER);
-console.log('Environment variables loaded successfully');
-
-app.get('/', (req, res) => {
-  res.status(200).send('OK');
+// Health check
+app.get('/health', (req, res) => {
+  res.status(200).json({ message: 'API is running' });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running on port ${process.env.PORT || 3000}`);
-});
+// Rotas
+app.use('/tasks', taskRoutes);
 
 module.exports = app;
